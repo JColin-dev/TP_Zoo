@@ -36,30 +36,33 @@ Autoloader::register();
                     <li class="nav-item">
                         <a class="nav-link" href="#">Animaux</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Cages</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Nourriture</a>
-                    </li>
 
                     <?php
 
                     $utilisateur = NULL;
 
-                        if (isset($_SESSION["utilisateur"])) { ?>
+                    if (isset($_SESSION["utilisateur"])) { ?>
 
-                            <li>
-                                <a class="nav-link" href="<?php echo Config::$baseUrl ?>/utilisateur/deconnexion">Déconnexion</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Cages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Nourriture</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Equipe</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="<?php echo Config::$baseUrl ?>/utilisateur/deconnexion">Déconnexion</a>
+                        </li>
 
-                        <?php } else { ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo Config::$baseUrl ?>/utilisateur/connexion">Connexion</a>
-                    </li>
-                    <?php 
-                        }
-                        ?>
+                    <?php } else { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo Config::$baseUrl ?>/utilisateur/connexion">Connexion</a>
+                        </li>
+                    <?php
+                    }
+                    ?>
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-sm-2" type="text" placeholder="Search">
