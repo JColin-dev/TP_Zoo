@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-use Connexion;
+use DAO\AnimalDao;
 use DAO\UtilisateurDao;
 
 class UtilisateurController extends BaseController {
@@ -34,4 +34,32 @@ class UtilisateurController extends BaseController {
         $this->afficherMessage('Vous êtes bien déconnecté', 'success');
         $this->redirection();
     }
+
+    public function inscription() {
+
+        $pseudo = "";
+
+        if(isset($_POST["pseudo"])) {
+            $pseudo = $_POST["pseudo"];
+
+            $dao = new UtilisateurDao();
+            
+            $dao->insertUser($_POST["pseudo"], $_POST["password"]);
+
+            $this->afficherMessage("Vous avez bien inscrit l'utilisateur", "success");
+            $this->redirection("utilisateur/connexion");
+        }
+
+        $this->afficherVue("inscription");
+    }
+
+    public function supprimerAnimal($parametres)
+    {
+        $idAnimal = $parametres[0];
+
+        $dao = new UtilisateurDao;
+        $dao->supprimerAnimal($idAnimal);
+    }
+
+    
 }

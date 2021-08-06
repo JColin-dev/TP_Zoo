@@ -26,31 +26,30 @@ Autoloader::register();
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Zoo</a>
+            <a class="navbar-brand" href="<?php echo Config::$baseUrl ?>">Zoo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Animaux</a>
-                    </li>
 
                     <?php
 
                     $utilisateur = NULL;
 
                     if (isset($_SESSION["utilisateur"])) { ?>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Cages</a>
+                            <a class="nav-link" href="<?php echo Config::$baseUrl ?>/animal/index">Animaux</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Nourriture</a>
+                            <a class="nav-link" href="<?php echo Config::$baseUrl ?>/animal/insertCage">Cages</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Equipe</a>
+                            <a class="nav-link" href="<?php echo Config::$baseUrl ?>/animal/insertNourriture">Nourriture</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo Config::$baseUrl ?>/utilisateur/inscription">Equipe</a>
                         </li>
                         <li>
                             <a class="nav-link" href="<?php echo Config::$baseUrl ?>/utilisateur/deconnexion">Déconnexion</a>
